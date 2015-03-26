@@ -1,6 +1,6 @@
 ## Guestbook With Images
 
-This is a version of the guestbook sample app for Google App Engine that excersices the [images Python API](https://cloud.google.com/appengine/docs/python/images/usingimages).
+This is a version of the guestbook sample app for Google App Engine that exercises the [images Python API](https://cloud.google.com/appengine/docs/python/images/usingimages).
 
 See our other [Google Cloud Platform github
 repos](https://github.com/GoogleCloudPlatform) for sample applications and
@@ -38,7 +38,7 @@ scaffolding for other python frameworks and use cases.
    ```
    gcloud config set project <your-app-id>
    ```
-1. Use the [Admin Console](https://appengine.google.com) to view data, queues, and other AppEngine specific administration tasks.
+1. Use the [Admin Console](https://appengine.google.com) to view data, queues, and other App Engine specific administration tasks.
 1. Use gcloud to deploy your app.
 
    ```
