@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# [START all]
 import cgi
 import urllib
 import webapp2
@@ -107,3 +108,4 @@ app = webapp2.WSGIApplication([('/', MainPage),
                                ('/img', Image),
                                ('/sign', Guestbook)],
                               debug=True)
+# [END all]
