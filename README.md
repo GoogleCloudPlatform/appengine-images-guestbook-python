@@ -28,7 +28,7 @@ scaffolding for other python frameworks and use cases.
    gcloud preview app run appengine-images-guestbook-python/
    ```
 
-Visit the application [http://localhost:8080](http://localhost:8080)
+1. Visit the application at [http://localhost:8080](http://localhost:8080).
 
 ## Deploying
 
