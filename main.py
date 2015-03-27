@@ -22,12 +22,14 @@ from google.appengine.api import images
 from google.appengine.api import users
 
 
+# [START model]
 class Greeting(ndb.Model):
     """Models a Guestbook entry with an author, content, avatar, and date."""
     author = ndb.StringProperty()
     content = ndb.TextProperty()
     avatar = ndb.BlobProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
+# [END model]
 
 
 def guestbook_key(guestbook_name=None):
@@ -51,11 +53,14 @@ class MainPage(webapp2.RequestHandler):
                     '<b>%s</b> wrote:' % greeting.author)
             else:
                 self.response.out.write('An anonymous person wrote:')
+            # [START display_image]
             self.response.out.write('<div><img src="/img?img_id=%s"></img>' %
                                     greeting.key.urlsafe())
             self.response.out.write('<blockquote>%s</blockquote></div>' %
                                     cgi.escape(greeting.content))
+            # [END display_image]
 
+        # [START form]
         self.response.out.write("""
               <form action="/sign?%s" enctype="multipart/form-data" method="post">
                 <div><textarea name="content" rows="3" cols="60"></textarea></div>
@@ -69,8 +74,10 @@ class MainPage(webapp2.RequestHandler):
             </body>
           </html>""" % (urllib.urlencode({'guestbook_name': guestbook_name}),
                         cgi.escape(guestbook_name)))
+        # [END form]
 
 
+# [START image_handler]
 class Image(webapp2.RequestHandler):
     def get(self):
         greeting_key = ndb.Key(urlsafe=self.request.get('img_id'))
@@ -80,8 +87,10 @@ class Image(webapp2.RequestHandler):
             self.response.out.write(greeting.avatar)
         else:
             self.response.out.write('No image')
+# [END image_handler]
 
 
+# [START sign_handler]
 class Guestbook(webapp2.RequestHandler):
     def post(self):
         guestbook_name = self.request.get('guestbook_name')
@@ -102,6 +111,7 @@ class Guestbook(webapp2.RequestHandler):
 
         self.redirect('/?' + urllib.urlencode(
             {'guestbook_name': guestbook_name}))
+# [END sign_handler]
 
 
 app = webapp2.WSGIApplication([('/', MainPage),
