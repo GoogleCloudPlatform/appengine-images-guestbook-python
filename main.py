@@ -103,8 +103,6 @@ class Guestbook(webapp2.RequestHandler):
 
         # Get image data
         avatar = self.request.get('img')
-        # Transform the image
-        avatar = images.resize(avatar, 32, 32)
         greeting.avatar = avatar
 
         greeting.put()
