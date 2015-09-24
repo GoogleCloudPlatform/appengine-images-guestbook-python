@@ -1,5 +1,11 @@
 ## Guestbook With Images
 
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
+
+This project is no longer actively developed or maintained.  
+
+For new work on this check out [images example](https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/images).
+
 This is a version of the guestbook sample app for Google App Engine that exercises the [images Python API](https://cloud.google.com/appengine/docs/python/images/usingimages).
 
 See our other [Google Cloud Platform github
